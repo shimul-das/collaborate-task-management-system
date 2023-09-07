@@ -18,6 +18,7 @@ import PrivateRoute from './Provider/PrivateRoute.jsx';
 import TaskForm from './Pages/Dashboard/TaskForm.jsx';
 import MyTasklist from './Pages/Dashboard/MyTasklist.jsx';
 import AllTask from './Pages/Dashboard/AllTask.jsx';
+import TeamTask from './Pages/Dashboard/ColaborateTask.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "alltasklist",
         element:<AllTask></AllTask>,
+      },
+      {
+        path: "teamtask",
+        element:<TeamTask></TeamTask>,
       }
     ],
 

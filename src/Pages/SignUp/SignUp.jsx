@@ -9,6 +9,7 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
   const [password, setPassword] = useState('');
   const [bio, setBio] = useState('');
   const [uploadedImageLinks, setUploadedImageLinks] = useState([]);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -66,6 +67,7 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
     } catch (error) {
       console.error('Error uploading image:', error);
     }
+    setIsButtonEnabled(true);
   };
 
   return (
@@ -127,6 +129,7 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
           <div className="text-center">
             <button
               type="submit"
+              disabled={!isButtonEnabled}
               className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full"
             >
               Sign Up

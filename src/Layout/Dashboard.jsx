@@ -30,7 +30,7 @@ const Dashboard = () => {
             <Link to="mytasklist" className="text-white hover:text-gray-200">My All Task</Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-gray-200">Link 2</a>
+            <Link to="teamtask" className="text-white hover:text-gray-200">Team Task</Link>
           </li>
           {/* Add more links if needed */}
         </ul>
