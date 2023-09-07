@@ -1,35 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const Header = () => (
-//   <nav className="bg-blue-500 p-4">
-//     <div className="container mx-auto flex justify-between items-center">
-//       {/* Left side - Website Name */}
-//       <div className="text-white font-bold text-xl">
-//         T-Task
-//       </div>
-
-//       {/* Middle - Navigation Links */}
-//       <ul className="flex space-x-4">
-//         <li>
-//           <a href="/" className="text-white hover:text-gray-200">Home</a>
-//         </li>
-//         {/* Add more navigation links here */}
-//       </ul>
-
-//       {/* Right side - Login Button */}
-//       <Link to="login">
-//       <button className="bg-white text-blue-500 hover:bg-blue-600 text-sm font-semibold py-2 px-4 rounded-full">
-//         Login
-//       </button>
-//       </Link>
-//     </div>
-//   </nav>
-// );
-
-// export default Header;
-
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../Provider/UserContext';

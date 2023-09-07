@@ -15,6 +15,9 @@ import { UserProvider } from './Provider/UserContext.jsx';
 import UserDashboard from './Pages/Dashboard/UserDashboard.jsx';
 import Dashboard from './Layout/Dashboard.jsx';
 import PrivateRoute from './Provider/PrivateRoute.jsx';
+import TaskForm from './Pages/Dashboard/TaskForm.jsx';
+import MyTasklist from './Pages/Dashboard/MyTasklist.jsx';
+import AllTask from './Pages/Dashboard/AllTask.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
         path: "signup",
         element:<SignUp></SignUp>
       },
+      {
+        path: "form",
+        element:<TaskForm></TaskForm>,
+      }
     ],
   },
   {
@@ -42,6 +49,18 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element:<UserDashboard></UserDashboard>,
+      },
+      {
+        path: "addtask",
+        element:<TaskForm></TaskForm>,
+      },
+      {
+        path: "mytasklist",
+        element:<MyTasklist></MyTasklist>,
+      },
+      {
+        path: "alltasklist",
+        element:<AllTask></AllTask>,
       }
     ],
 

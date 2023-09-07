@@ -1,7 +1,5 @@
-
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,34 +7,40 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [bio, setBio] = useState('');
   const [uploadedImageLinks, setUploadedImageLinks] = useState([]);
-  
+  const navigate = useNavigate();
+
   const handleSignUp = (e) => {
     e.preventDefault();
-  
+
     const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const newUser = { id: uuidv4(), name, email, password, profilePic: uploadedImageLinks[0] };
-  
-    // Check if the email is already registered
+    const newUser = {
+      id: uuidv4(),
+      name,
+      email,
+      password,
+      bio,
+      profilePic: uploadedImageLinks[0]
+    };
+
     const userWithEmail = existingUsers.find(user => user.email === email);
-  
+
     if (userWithEmail) {
       alert('Email is already registered. Please use a different email.');
     } else {
       const updatedUsers = [...existingUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
-  
-      // Display SweetAlert message
+
       Swal.fire({
         icon: 'success',
         title: 'Sign Up Successful!',
         text: 'You have successfully signed up.',
         confirmButtonText: 'Continue',
       });
+      navigate('/login');
     }
   };
-  
-  
 
   const handleImageUpload = async (e) => {
     const selectedImage = e.target.files[0];
@@ -99,6 +103,15 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              className="w-full border border-gray-300 rounded p-2"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="bio" className="block text-gray-600">Bio:</label>
+            <textarea
+              id="bio"
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
               className="w-full border border-gray-300 rounded p-2"
             />
           </div>
