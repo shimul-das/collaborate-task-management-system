@@ -98,6 +98,22 @@ const MyTasklist = () => {
     }
   });
 
+  const handleDeleteTask = (taskId) => {
+    // Retrieve tasks from local storage
+    const userTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const isOwner = userTasks.find(task => task.taskid === taskId && task.userid === user.id);
+  
+    if (isOwner) {
+      const updatedTasks = userTasks.filter(task => task.taskid !== taskId);
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      setTasks(updatedTasks);
+      setRefreshKey(prevKey => prevKey + 1);
+    } else {
+      alert("You do not have permission to delete this task.");
+    }
+  };
+  
+
   return (
     <div>
       <h2 className='text-center text-2xl font-bold p-5 text-green-900'>All Tasks Added By Me</h2>
@@ -162,9 +178,14 @@ const MyTasklist = () => {
                 <option value="pending">Pending</option>
               </select>
             </label>
+            <div className='flex justify-between'>
             <button onClick={() => handleInviteClick(task.taskid)} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full mt-2">
               Invite
             </button>
+            <button onClick={() => handleDeleteTask(task.taskid)} className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full mt-2">
+              Delete
+            </button>
+            </div>
           </div>
         ))}
       </div>
