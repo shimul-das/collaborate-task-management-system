@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../../Provider/UserContext';
 
@@ -7,6 +7,10 @@ const Login = ({ onLogin, onSignUpClick }) => {
   const [password, setPassword] = useState('');
   const { handleLogin } = useUser();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'Login - T-Task';
+  }, []);
   
 
   const handleLoginSubmit = (e) => {

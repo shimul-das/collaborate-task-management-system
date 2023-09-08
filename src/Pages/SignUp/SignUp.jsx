@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,6 +11,10 @@ const SignUp = ({ onSignUp, onLoginClick }) => {
   const [uploadedImageLinks, setUploadedImageLinks] = useState([]);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Signup - T-Task';
+  }, []);
 
   const handleSignUp = (e) => {
     e.preventDefault();

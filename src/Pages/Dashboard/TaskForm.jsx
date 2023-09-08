@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '../../Provider/UserContext';
@@ -11,6 +11,9 @@ const TaskForm = () => {
   const [priority, setPriority] = useState('');
   const [assignedTo, setAssignedTo] = useState('');
   const { user, handleLogout } = useUser();
+  useEffect(() => {
+    document.title = 'Add Task - T-Task';
+  }, []);
   
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -97,17 +100,6 @@ const TaskForm = () => {
               <option value="high">High</option>
             </select>
           </div>
-          {/* <div>
-            <label htmlFor="assignedTo" className="block text-gray-600">Assigned To:</label>
-            <input
-              type="text"
-              id="assignedTo"
-              value={assignedTo}
-              onChange={(e) => setAssignedTo(e.target.value)}
-              required
-              className="w-full border border-gray-300 rounded p-2"
-            />
-          </div> */}
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full w-full"

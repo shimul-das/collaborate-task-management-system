@@ -6,6 +6,9 @@ const AllTask = () => {
   const [filterStatus, setFilterStatus] = useState('all');
   const [sortCriteria, setSortCriteria] = useState('dueDate');
   const [filterPriority, setFilterPriority] = useState('all');
+  useEffect(() => {
+    document.title = 'All Tasks - T-Task';
+  }, []); 
 
   useEffect(() => {
     const allTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -29,10 +32,9 @@ const AllTask = () => {
     if (sortCriteria === 'dueDate') {
       return new Date(a.dueDate) - new Date(b.dueDate);
     } else if (sortCriteria === 'priority') {
-      const priorityOrder = { low: 3, medium: 2, high: 1 }; // Adjust as needed
+      const priorityOrder = { low: 3, medium: 2, high: 1 }; 
       return priorityOrder[a.priority] - priorityOrder[b.priority];
     }
-    // Add other sorting criteria as needed
   });
 
   return (
@@ -74,7 +76,6 @@ const AllTask = () => {
           >
             <option value="dueDate">Due Date</option>
             <option value="priority">Priority</option>
-            {/* Add other sorting criteria options */}
           </select>
         </div>
       </div>
