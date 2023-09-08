@@ -32,7 +32,7 @@ const Header = () => {
             </div>
             {showDropdown && (
               <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded">
-                <Link to="/dashboard" className="block px-4 py-2 text-blue-500 hover:bg-blue-100">Dashboard</Link>
+                <Link to="/dashboard/userhome" className="block px-4 py-2 text-blue-500 hover:bg-blue-100">Dashboard</Link>
                 <div className="border-t border-gray-300"></div>
                 <button
                   className="block px-4 py-2 text-blue-500 hover:bg-blue-100 w-full text-left"

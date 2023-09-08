@@ -12,13 +12,13 @@ import Main from './Layout/Main.jsx';
 import Login from './Pages/Login/Login.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
 import { UserProvider } from './Provider/UserContext.jsx';
-import UserDashboard from './Pages/Dashboard/UserDashboard.jsx';
 import Dashboard from './Layout/Dashboard.jsx';
 import PrivateRoute from './Provider/PrivateRoute.jsx';
 import TaskForm from './Pages/Dashboard/TaskForm.jsx';
 import MyTasklist from './Pages/Dashboard/MyTasklist.jsx';
 import AllTask from './Pages/Dashboard/AllTask.jsx';
 import TeamTask from './Pages/Dashboard/ColaborateTask.jsx';
+import UserDashboard from './Pages/Dashboard/UserDashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        path: "dashboard",
+        path: "userhome",
         element:<UserDashboard></UserDashboard>,
       },
       {
