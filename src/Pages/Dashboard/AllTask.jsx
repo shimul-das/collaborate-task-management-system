@@ -80,7 +80,8 @@ const AllTask = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {sortedTasks.map(task => (
+      {sortedTasks.length > 0 ? (
+        sortedTasks.map(task => (
           <div key={task.taskid} className="bg-green-300 p-6 rounded shadow">
             <h3 className="text-xl font-bold mb-2">{task.title}</h3>
             <p className="text-gray-700 mb-2">{task.description}</p>
@@ -90,7 +91,9 @@ const AllTask = () => {
             <p className="text-gray-700 mb-2"><span className='text-lg font-semibold'>Task Created By:</span> {getUserName(task.userid)}</p>
             <p className="text-gray-700 mb-2"><span className="text-lg font-semibold">Team:</span> {task.team ? task.team.join(", ") : "No team members yet"}</p>
           </div>
-        ))}
+        ))):(
+          <div className="text-center text-gray-700">No tasks found</div>
+        )}
       </div>
     </div>
   );
